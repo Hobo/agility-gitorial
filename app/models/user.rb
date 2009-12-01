@@ -9,6 +9,11 @@ class User < ActiveRecord::Base
     timestamps
   end
 
+  validates_presence_of :name
+
+  has_many :task_assignments, :dependent => :destroy
+  has_many :tasks, :through => :task_assignments
+
   # This gives admin rights and an :active state to the first sign-up.
   # Just remove it if you don't want that
   before_create do |user|
