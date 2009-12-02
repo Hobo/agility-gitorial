@@ -7,3 +7,13 @@
 <include src="taglibs/auto/rapid/forms"/>
 
 <set-theme name="clean"/>
+
+<extend tag="card" for="Task">
+  <old-card merge>
+    <append-body:>
+    <div class="users">
+      Assigned users: <repeat:users join=", "><a/></repeat><else>None</else>
+    </div>
+    </append-body:>
+  </old-card>
+</extend>
