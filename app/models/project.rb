@@ -8,6 +8,8 @@ class Project < ActiveRecord::Base
   end
 
   has_many :stories, :dependent => :destroy
+  
+  children :stories
 
   # --- Permissions --- #
 
