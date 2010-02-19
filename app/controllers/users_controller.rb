@@ -4,6 +4,8 @@ class UsersController < ApplicationController
 
   auto_actions :all, :except => [ :index, :new, :create ]
 
+  autocomplete
+
   def create
     hobo_create do
       if valid?
