@@ -31,5 +31,12 @@ gem 'sqlite3'
 # end
 gem "hobo", "= 1.3.0.RC4"
 gem "bluecloth"
+
 gem "shoulda", :group => :test
 gem "factory_girl_rails", :group => :test
+
+group :development, :test do
+  gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
+  gem 'database_cleaner'
+end
+
