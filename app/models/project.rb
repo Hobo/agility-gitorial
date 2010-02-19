@@ -11,6 +11,9 @@ class Project < ActiveRecord::Base
   
   children :stories
 
+  has_many :memberships, :class_name => "ProjectMembership", :dependent => :destroy
+  has_many :members, :through => :memberships, :source => :user
+
   belongs_to :owner, :class_name => "User", :creator => true
 
   # --- Permissions --- #
