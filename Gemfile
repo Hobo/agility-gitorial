@@ -30,3 +30,4 @@ gem 'sqlite3'
 #   gem 'webrat'
 # end
 gem "hobo", ">= 1.3.0.pre31"
+gem "bluecloth"
