@@ -11,6 +11,8 @@ class Project < ActiveRecord::Base
   
   children :stories
 
+  belongs_to :owner, :class_name => "User", :creator => true
+
   # --- Permissions --- #
 
   def create_permitted?
