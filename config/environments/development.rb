@@ -24,6 +24,6 @@ Agility::Application.configure do
   config.action_dispatch.best_standards_support = :builtin
 
   # turn this off after you're done translating
-  config.hobo.show_translation_keys = true
+  # config.hobo.show_translation_keys = true
 end
 
