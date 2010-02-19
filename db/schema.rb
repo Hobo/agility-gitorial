@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110418140729) do
+ActiveRecord::Schema.define(:version => 20110419124628) do
 
   create_table "projects", :force => true do |t|
     t.string   "name"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20110418140729) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "story_id"
+    t.integer  "position"
   end
 
   add_index "tasks", ["story_id"], :name => "index_tasks_on_story_id"
