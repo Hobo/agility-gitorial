@@ -6,6 +6,9 @@ class ProjectMembership < ActiveRecord::Base
     timestamps
   end
 
+  belongs_to :project
+  belongs_to :user
+
   # --- Permissions --- #
 
   def create_permitted?
