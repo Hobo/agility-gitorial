@@ -30,7 +30,7 @@ class Story < ActiveRecord::Base
   end
 
   def view_permitted?(field)
-    true
+    project.viewable_by?(acting_user)
   end
 
 end
