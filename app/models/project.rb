@@ -8,8 +8,8 @@ class Project < ActiveRecord::Base
   end
 
   has_many :stories, :dependent => :destroy
-  
-  children :stories
+
+  children :stories, :memberships
 
   has_many :memberships, :class_name => "ProjectMembership", :dependent => :destroy
   has_many :members, :through => :memberships, :source => :user
