@@ -9,6 +9,13 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 module Agility
   class Application < Rails::Application
   
+    config.generators do |g|
+      g.test_framework :shoulda, :fixtures => true
+      g.fallbacks[:shoulda] = :test_unit
+      g.fixture_replacement = :factory_girl_rails
+    end
+
+  
   config.hobo.dryml_only_templates = true
 
     # Settings in config/environments/* take precedence over those specified here.
