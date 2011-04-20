@@ -31,3 +31,5 @@ gem 'sqlite3'
 # end
 gem "hobo", ">= 1.3.0.pre31"
 gem "bluecloth"
+gem "shoulda", :group => :test
+gem "factory_girl", :group => :test
