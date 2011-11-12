@@ -22,5 +22,8 @@ Agility::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+
+  # turn this off after you're done translating
+  config.hobo.show_translation_keys = true
 end
 
