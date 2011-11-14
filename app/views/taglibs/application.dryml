@@ -38,3 +38,28 @@
     <nav-item href="#{base_url}/">Home</nav-item>
   </navigation>
 </def>
+
+<def tag="qunit-includes">
+  <stylesheet name="qunit"/>
+  <javascript name="qunit"/>
+</def>
+
+<def tag="qunit-banner">
+  <h1 id="qunit-header">QUnit</h1>
+  <h2 id="qunit-banner"></h2>
+  <h2 id="qunit-userAgent"></h2>
+  <ol id="qunit-tests">
+  </ol>
+</def>
+
+<extend tag="page">
+  <old-page>
+    <append-scripts:>
+      <qunit-includes/>
+    </append-scripts:>
+
+    <before-header:>
+      <qunit-banner/>
+    </before-header:>
+  </old-page>
+</extend>
