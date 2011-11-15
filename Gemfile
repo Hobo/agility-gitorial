@@ -29,7 +29,13 @@ gem 'sqlite3'
 # group :development, :test do
 #   gem 'webrat'
 # end
-gem "hobo", "= 1.3.0.RC4"
+
+
+gem "hobo_support", :path => "/work/hobo/hobo_support"
+gem "hobo_fields", :path => "/work/hobo/hobo_fields"
+gem "dryml", :path => "/work/hobo/dryml"
+gem "hobo", :path => "/work/hobo/hobo"
+
 gem "bluecloth"
 gem "RedCloth"
 
@@ -43,4 +49,4 @@ end
 
 gem "jquery-rails"
 
-gem "hobo-jquery", :git => 'git://github.com/bryanlarsen/hobo-jquery.git', :branch => 'rails3'
+gem "hobo-jquery", :path => "/work/hobo-jquery"
