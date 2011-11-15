@@ -42,3 +42,5 @@ group :development, :test do
 end
 
 gem "jquery-rails"
+
+gem "hobo-jquery", :git => 'git://github.com/bryanlarsen/hobo-jquery.git', :branch => 'rails3'

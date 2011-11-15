@@ -6,6 +6,8 @@
 <include src="taglibs/auto/rapid/pages"/>
 <include src="taglibs/auto/rapid/forms"/>
 
+<include gem="hobo-jquery"/>
+
 <set-theme name="clean"/>
 
 <extend tag="card" for="Task">
@@ -54,9 +56,10 @@
 
 <extend tag="page">
   <old-page>
-    <append-scripts:>
+    <custom-scripts:>
+      <hjq-assets/>
       <qunit-includes/>
-    </append-scripts:>
+    </custom-scripts:>
 
     <before-header:>
       <qunit-banner/>
