@@ -7,6 +7,7 @@
 <include src="taglibs/auto/rapid/forms"/>
 
 <include gem="hobo-jquery"/>
+<include src="paperclip" plugin="paperclip_with_hobo"/>
 
 <set-theme name="clean"/>
 
@@ -55,14 +56,31 @@
 </def>
 
 <extend tag="page">
-  <old-page>
-    <custom-scripts:>
+  <old-page merge>
+    <scripts:>
+      <if-ie version="lt IE 7" param="fix-ie6">
+        <javascript name="IE7"/>
+        <javascript name="ie7-recalc"/>
+      </if-ie>
+
       <hjq-assets/>
       <qunit-includes/>
-    </custom-scripts:>
+      <javascript name="jquery.form"/>
+
+      <do param="custom-scripts"/>
+
+      <javascript param="application-javascript" name="application"/>
+    </scripts:>
 
     <before-header:>
       <qunit-banner/>
     </before-header:>
   </old-page>
 </extend>
+
+<def tag="page-scripts">
+  <do param="default">
+    <hjq-rapid-json/>
+  </do>
+</def>
+

@@ -148,5 +148,7 @@ class CreateAccountTest < ActionDispatch::IntegrationTest
     select "documentation", :from => "status"
     assert has_content?("No stories match your criteria")
 
+    # TODO: test sortable-collection
+
   end
 end

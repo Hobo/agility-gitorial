@@ -1,0 +1,13 @@
+diff --git a/hobo/lib/hobo/helper.rb b/hobo/lib/hobo/helper.rb
+index cadcba4..c10414e 100644
+--- a/hobo/lib/hobo/helper.rb
++++ b/hobo/lib/hobo/helper.rb
+@@ -248,7 +248,7 @@ module Hobo
+       # TODO: Man does this need a big cleanup!
+ 
+       if args.empty?
+-        if this_parent && this_field
++        if this_parent && this_field && !this_field.is_a?(Integer)
+           object = this_parent
+           field = this_field
+         else

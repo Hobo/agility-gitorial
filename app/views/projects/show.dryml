@@ -1,4 +1,14 @@
 <show-page>
+  <field-list: replace>
+    <div part="report-part">
+      <field-list fields="report_file_name,report_file_size"/>
+      <form multipart ajax>
+        <input:report/>
+        <submit label="upload new report"/>
+      </form>
+    </div>
+  </field-list:>
+
   <collection: replace>
   <table-plus with="&@stories" fields="this, tasks.count, status">
     <prepend-header:>

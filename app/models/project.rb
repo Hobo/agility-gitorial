@@ -7,6 +7,8 @@ class Project < ActiveRecord::Base
     timestamps
   end
 
+  has_attached_file :report
+  
   has_many :stories, :dependent => :destroy
 
   children :stories, :memberships
@@ -23,7 +25,7 @@ class Project < ActiveRecord::Base
   def accepts_changes_from?(user)
     user.administrator? || user == owner || user.in?(contributors)
   end
-  
+
   # --- Permissions --- #
 
   def create_permitted?

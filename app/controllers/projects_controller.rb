@@ -6,6 +6,8 @@ class ProjectsController < ApplicationController
 
   auto_actions_for :owner, [:new, :create]
 
+  show_action :show2
+
   def show
     @project = find_instance
     @stories =
@@ -13,5 +15,7 @@ class ProjectsController < ApplicationController
                                     :status_is => params[:status],
                                     :order_by  => parse_sort_param(:title, :status))
   end
+
+  def show2; show; end
 
 end
