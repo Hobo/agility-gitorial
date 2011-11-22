@@ -11,7 +11,62 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110419140701) do
+ActiveRecord::Schema.define(:version => 20111123020948) do
+
+  create_table "bars", :force => true do |t|
+    t.string  "name"
+    t.integer "foo_id"
+  end
+
+  add_index "bars", ["foo_id"], :name => "index_bars_on_foo_id"
+
+  create_table "bats", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "baz_id"
+  end
+
+  add_index "bats", ["baz_id"], :name => "index_bats_on_baz_id"
+
+  create_table "bazs", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "foobazs", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "foo_id"
+    t.integer  "baz_id"
+  end
+
+  add_index "foobazs", ["baz_id"], :name => "index_foobazs_on_baz_id"
+  add_index "foobazs", ["foo_id"], :name => "index_foobazs_on_foo_id"
+
+  create_table "foos", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "bool1"
+    t.boolean  "bool2"
+    t.integer  "i"
+    t.float    "f"
+    t.decimal  "dec",                               :precision => 10, :scale => 4
+    t.string   "s"
+    t.text     "tt",            :limit => 16777215
+    t.date     "d"
+    t.datetime "dt"
+    t.text     "hh"
+    t.text     "tl"
+    t.text     "md"
+    t.string   "es",                                                               :default => "a"
+    t.boolean  "v",                                                                :default => true
+    t.string   "state",                                                            :default => "state1"
+    t.datetime "key_timestamp"
+  end
+
+  add_index "foos", ["state"], :name => "index_foos_on_state"
 
   create_table "project_memberships", :force => true do |t|
     t.datetime "created_at"
@@ -29,6 +84,10 @@ ActiveRecord::Schema.define(:version => 20110419140701) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "owner_id"
+    t.string   "report_file_name"
+    t.string   "report_content_type"
+    t.integer  "report_file_size"
+    t.datetime "report_updated_at"
   end
 
   add_index "projects", ["owner_id"], :name => "index_projects_on_owner_id"
