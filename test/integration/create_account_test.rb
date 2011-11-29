@@ -8,6 +8,10 @@ Capybara.app = Agility::Application
 Capybara.default_driver = :rack_test
 DatabaseCleaner.strategy = :truncation
 
+Capybara.register_driver :selenium_chrome do |app|
+  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+end
+
 class CreateAccountTest < ActionDispatch::IntegrationTest
   include Capybara::DSL
   self.use_transactional_fixtures = false
@@ -21,7 +25,7 @@ class CreateAccountTest < ActionDispatch::IntegrationTest
   end
 
   test "create account" do
-    Capybara.current_driver = :selenium
+    Capybara.current_driver = :selenium_chrome
     visit root_path
 
     # create administrator
@@ -67,6 +71,16 @@ class CreateAccountTest < ActionDispatch::IntegrationTest
     find("div.task-users select").select("Test User")
     click_button "Add"
     assert has_content?("The Task was created successfully")
+
+    fill_in "task_description", :with => "Second Task"
+    find("div.task-users select").select("Test User")
+    click_button "Add"
+    assert has_content?("The Task was created successfully")
+
+    find("ul.tasks li:last .ordering-handle").drag_to(find("ul.tasks li:first .ordering-handle"))
+    sleep 1
+    visit page.current_path
+    assert find("ul.tasks li:first .description").has_text?("Second Task")
 
     # create Second User
     click_link "Log out"
