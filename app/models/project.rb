@@ -9,7 +9,7 @@ class Project < ActiveRecord::Base
 
   has_attached_file :report
   
-  has_many :stories, :dependent => :destroy
+  has_many :stories, :dependent => :destroy, :accessible => true
 
   children :stories, :memberships
 

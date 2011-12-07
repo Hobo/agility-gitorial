@@ -3,10 +3,15 @@ require 'test_helper'
 require 'capybara'
 require 'capybara/dsl'
 require 'database_cleaner'
+require 'ruby-debug'
 
 Capybara.app = Agility::Application
 Capybara.default_driver = :rack_test
 DatabaseCleaner.strategy = :truncation
+
+Capybara.register_driver :selenium_chrome do |app|
+  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+end
 
 class AjaxFormTest < ActionDispatch::IntegrationTest
   include Capybara::DSL
@@ -26,9 +31,15 @@ class AjaxFormTest < ActionDispatch::IntegrationTest
     DatabaseCleaner.clean
   end
 
+  def wait_for_updates_to_finish
+    while page.evaluate_script("$(document).hjq('numUpdates')").to_i > 0
+      sleep 0.1
+    end
+  end
+
   test "ajax forms" do
     Capybara.current_driver = :selenium
-    Capybara.default_wait_time = 5
+    Capybara.default_wait_time = 10
     visit root_path
 
     # log in as Administrator
@@ -44,21 +55,48 @@ class AjaxFormTest < ActionDispatch::IntegrationTest
     # verify that qunit tests have passed.
     assert has_content?("0 failed.")
 
-    find("#form1").fill_in("story_status_name", :with => "foo")
+    find("#form1").fill_in("story_status_name", :with => "foo1")
     find("#form1").click_button("new")
-    assert_equal "foo", find("ul.statuses li:first .story-status-name").text
+    assert find(".statuses table tbody tr:first .story-status-name").has_text?("foo1")
+    # wait_for_updates_to_finish  # we don't need this every time, but if we don't throw it in occasionally, things do stop working
 
     find("#form2").fill_in("story_status_name", :with => "foo2")
     find("#form2").click_button("new")
-    assert_equal "foo2", find("ul.statuses li:nth-child(2) .story-status-name").text
+    assert find(".statuses table tbody tr:nth-child(2) .story-status-name").has_text?("foo2")
+    wait_for_updates_to_finish
 
     find("#form3").fill_in("story_status_name", :with => "foo3")
     find("#form3").click_button("new")
-    assert_equal "foo3", find("ul.statuses li:nth-child(3) .story-status-name").text
+    assert find(".statuses table tbody tr:nth-child(3) .story-status-name").has_text?("foo3")
+    # wait_for_updates_to_finish
 
     find("#form4").fill_in("story_status_name", :with => "foo4")
     find("#form4").click_button("new")
-    assert_equal "foo4", find("ul.statuses li:nth-child(4) .story-status-name").text
+    assert find(".statuses table tbody tr:nth-child(4) .story-status-name").has_text?("foo4")
+    wait_for_updates_to_finish
+
+    find(".statuses table tr:first .delete-button").click
+    page.driver.browser.switch_to.alert.accept
+    assert has_no_content?("foo1")   # waits for ajax to finish
+    assert_equal 3, all(".statuses table tbody tr").length
+
+    visit "/story_statuses/index3"
+    find(".statuses li:first .delete-button").click
+    page.driver.browser.switch_to.alert.accept
+    assert has_no_content?("foo2")   # waits for ajax to finish
+    assert_equal 2, all(".statuses li").length
+    assert has_content?("There are 2 Story statuses")
+
+    visit "/story_statuses/index4"
+    find(".statuses li:first .delete-button").click
+    page.driver.browser.switch_to.alert.accept
+    assert has_content?("There is one Story status")
+
+    find(".statuses li:first .delete-button").click
+    page.driver.browser.switch_to.alert.accept
+    assert has_no_content?("foo4")   # waits for ajax to finish
+    assert_equal 0, all(".statuses li").length
+    assert has_content?("No records to display")
 
     visit "/projects/#{@project.id}/show2"
     assert_not_equal "README", find(".report-file-name-view").text

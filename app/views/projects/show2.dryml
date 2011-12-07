@@ -46,4 +46,18 @@
      <div class="callbacks">callbacks:</div>
   </after-content:>
 
+  <aside:>
+    <h2>Project Members</h2>
+    <collection:memberships part="members">
+      <card><heading:><a:user/></heading:></card>
+    </collection>
+
+    <form:memberships.new update="members" reset-form refocus-form>
+      <div>
+        Add a member:
+        <autocomplete:user/>
+      </div>
+    </form>
+  </aside:>
+
 </show-page>

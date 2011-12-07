@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
 
   auto_actions_for :owner, [:new, :create]
 
-  show_action :show2
+  show_action :show2, :show_with_controls, :nested_has_many_test, :dialog_test
 
   def show
     @project = find_instance

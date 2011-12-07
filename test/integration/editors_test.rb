@@ -32,10 +32,16 @@ class EditorsTest < ActionDispatch::IntegrationTest
     find("#{selector} .in-place-edit").click
     find("#{selector} input[type=text],#{selector} textarea").set(value)
     find("h2").click # just to get a blur
-    find("h2").click # just to get a blur
     assert find("#{selector} .in-place-edit").has_text?(text_value)
     @verify_list << { :selector => selector, :value => text_value }
   end
+
+  def wait_for_updates_to_finish
+    while page.evaluate_script("$(document).hjq('numUpdates')").to_i > 0
+      sleep 0.1
+    end
+  end
+
 
   test "editors" do
     Capybara.current_driver = :webkit
@@ -71,28 +77,33 @@ class EditorsTest < ActionDispatch::IntegrationTest
     @verify_list << { :selector => ".bool1-view", :value => "Yes" }
 
     find(".bool2-view input").click
+    wait_for_updates_to_finish
     find(".bool2-view input").click
     @verify_list << { :selector => ".bool2-view", :value => "No" }
 
     find(".es-view select").select("C")
     @verify_list << { :selector => ".es-view", :value => "c" }
 
-    fill_in "foo[i]", :with => "192"
-    click_button "reload editors"
+    if Capybara.current_driver == :selenium
+      fill_in "foo[i]", :with => "17"
+      click_button "reload editors"
+    else
+      fill_in "foo[i]", :with => "192"
+      click_button "reload editors"
 
-    assert find(".i-view .in-place-edit").has_text?("192")
+      assert find(".i-view .in-place-edit").has_text?("192")
 
-    find(".i-view .in-place-edit").click
-    sleep 1
-    find(".i-view input[type=text]").set('17')
-    find("h2").click # just to get a blur
-    find("h2").click # just to get a blur
-    assert find(".i-view .in-place-edit").has_text?('17')
+      find(".i-view .in-place-edit").click
+      # selenium crashes on this line
+      find(".i-view input[type=text]").set('17')
+      find("h2").click # just to get a blur
+      assert find(".i-view .in-place-edit").has_text?('17')
+    end
 
     click_link "exit editors"
 
     @verify_list.each {|v|
-      assert_equal v[:value], find(v[:selector]).text
+      assert_equal v[:value], find(v[:selector]).text, v[:selector]
     }
 
   end

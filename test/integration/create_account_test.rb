@@ -3,6 +3,7 @@ require 'test_helper'
 require 'capybara'
 require 'capybara/dsl'
 require 'database_cleaner'
+require 'ruby-debug'
 
 Capybara.app = Agility::Application
 Capybara.default_driver = :rack_test
@@ -22,6 +23,7 @@ class CreateAccountTest < ActionDispatch::IntegrationTest
 
   teardown do
     DatabaseCleaner.clean
+    User.all.*.destroy  # the cleaner should do this, but....
   end
 
   test "create account" do
@@ -160,7 +162,7 @@ class CreateAccountTest < ActionDispatch::IntegrationTest
 
     # check filtering
     select "documentation", :from => "status"
-    assert has_content?("No stories match your criteria")
+    assert has_no_content?("First Story")
 
     # TODO: test sortable-collection
 

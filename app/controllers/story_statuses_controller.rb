@@ -4,7 +4,7 @@ class StoryStatusesController < ApplicationController
 
   auto_actions :write_only, :new, :index
 
-  index_action :index2
+  index_action :index2, :index3, :index4
 
   def create
     hobo_create do
@@ -25,6 +25,18 @@ class StoryStatusesController < ApplicationController
                               :text => ht( :"#{this.class.to_s.underscore}.messages.create.error", :errors=>errors,:default=>["Couldn't create the #{this.class.name.titleize.downcase}.\n #{errors}"])
                                )}
         end
+      end
+    end
+  end
+
+  def destroy
+    hobo_destroy do
+      respond_to do |wants|
+        wants.html { redirect_after_submit(this, true) }
+        wants.js   {
+          self.this = StoryStatus.all.paginate
+          hobo_ajax_response || render(:nothing => true)
+        }
       end
     end
   end

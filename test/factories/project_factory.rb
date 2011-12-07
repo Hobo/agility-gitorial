@@ -9,4 +9,14 @@ FactoryGirl.define do
     name "Sample Project"
   end
 
+  factory :story_status do
+    name "status"
+  end
+
+  factory :task do
+    description "Task"
+    position 1
+    story
+  end
+
 end

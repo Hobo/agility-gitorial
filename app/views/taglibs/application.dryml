@@ -42,45 +42,16 @@
   </navigation>
 </def>
 
-<def tag="qunit-includes">
-  <stylesheet name="qunit"/>
-  <javascript name="qunit"/>
-</def>
-
-<def tag="qunit-banner">
-  <h1 id="qunit-header">QUnit</h1>
-  <h2 id="qunit-banner"></h2>
-  <h2 id="qunit-userAgent"></h2>
-  <ol id="qunit-tests">
-  </ol>
-</def>
-
-<extend tag="page">
-  <old-page merge>
-    <scripts:>
-      <if-ie version="lt IE 7" param="fix-ie6">
-        <javascript name="IE7"/>
-        <javascript name="ie7-recalc"/>
-      </if-ie>
-
-      <hjq-assets/>
-      <qunit-includes/>
-      <javascript name="jquery.form"/>
-
-      <do param="custom-scripts"/>
-
-      <javascript param="application-javascript" name="application"/>
-    </scripts:>
-
-    <before-header:>
-      <qunit-banner/>
-    </before-header:>
-  </old-page>
+<extend tag="select-many">
+  <old-select-many merge hide="puff"/>
 </extend>
 
-<def tag="page-scripts">
-  <do param="default">
-    <hjq-rapid-json/>
-  </do>
-</def>
+<extend tag="live-editor-innards">
+  <old-live-editor-innards merge hide="puff"/>
+</extend>
 
+<extend tag="click-editor-innards">
+  <old-click-editor-innards merge hide="puff" show="&false" message="updating...">
+    <formlet: hide="&false" show="&false"/>
+  </old-click-editor-innards>
+</extend>
