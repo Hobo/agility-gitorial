@@ -55,3 +55,15 @@
     <formlet: hide="&false" show="&false"/>
   </old-click-editor-innards>
 </extend>
+
+<extend tag="page">
+  <old-page merge>
+    <custom-scripts:>
+      <qunit-includes/>
+    </custom-scripts:>
+
+    <before-header:>
+      <qunit-banner/>
+    </before-header:>
+  </old-page>
+</extend>
