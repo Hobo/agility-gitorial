@@ -15,9 +15,7 @@ gem 'sqlite3'
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 # gem 'ruby-debug'
-group :development do
-  gem 'ruby-debug19'
-end
+gem 'ruby-debug19'
 
 # Bundle the extra gems:
 # gem 'bj'
@@ -32,7 +30,11 @@ end
 #   gem 'webrat'
 # end
 
-gem 'hobo', :git => 'git://github.com/tablatom/hobo.git', :branch => 'jquery'
+
+gem "hobo_support", :path => "/work/hobo/hobo_support"
+gem "hobo_fields", :path => "/work/hobo/hobo_fields"
+gem "dryml", :path => "/work/hobo/dryml"
+gem "hobo", :path => "/work/hobo/hobo"
 
 gem "bluecloth"
 gem "RedCloth"
@@ -48,6 +50,6 @@ end
 
 gem "jquery-rails"
 
-gem "hobo-jquery", :git => "git://github.com/bryanlarsen/hobo-jquery.git", :branch => "no-prototype"
+gem "hobo-jquery", :path => "/work/hobo-jquery"
 
 gem 'paperclip', :git => "git://github.com/jeanmartin/paperclip.git", :branch => "master"
