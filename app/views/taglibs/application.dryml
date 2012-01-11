@@ -75,6 +75,8 @@
   <old-page merge>
     <custom-scripts:>
       <qunit-includes/>
+      <javascript name="jquery.simple-color"/>
+      <javascript name="hjq-simple-color"/>
     </custom-scripts:>
 
     <before-header:>
@@ -82,3 +84,16 @@
     </before-header:>
   </old-page>
 </extend>
+
+<def tag="input" for="Color" attrs="name">
+  <%=
+     options, attrs = attributes.partition_hash(['defaultColor', 'border', 'cellWidth', 'cellHeight', 'cellMargin', 'boxWidth', 'boxHeight', 'columns', 'insert', 'buttonClass', 'colors', 'displayColorCode', 'colorCodeAlign', 'colorCodeColor'])
+     add_data_rapid!(attrs, 'simple-color', options)
+     text_field_tag(name, this, deunderscore_attributes(attrs))
+  %>
+</def>
+
+<def tag="view" for="Color">
+  <span style="background-color: #{this};"><%= this %></span>
+</def>
+

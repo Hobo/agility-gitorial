@@ -1,3 +1,6 @@
+
+
+Color # invoke autoload.   See bug #993
 class Story < ActiveRecord::Base
 
   hobo_model # Don't put anything above this
@@ -5,6 +8,7 @@ class Story < ActiveRecord::Base
   fields do
     title  :string
     body   :markdown # or :textile
+    color  Color, :default => "#000000"
     timestamps
   end
 
