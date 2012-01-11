@@ -1,0 +1,14 @@
+<show-page without-field-list without-aside>
+  <after-stylesheets:>
+    <style type="text/css">
+      .collection-section h3 {margin-bottom: 0px;}
+    </style>
+  </after-stylesheets:>
+  <collection: replace>
+    <accordion collapsible sortable selected="1">
+      <tab1: name="1" id="id1">A</tab1:>
+      <tab2:>B</tab2:>
+      <tab3: href="/"/>
+    </accordion>
+  </collection:>
+</show-page>

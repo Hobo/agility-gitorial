@@ -1,0 +1,19 @@
+<show-page without-field-list without-aside>
+  <after-stylesheets:>
+    <style type="text/css">
+      .collection-section h3 {margin-bottom: 0px;}
+    </style>
+  </after-stylesheets:>
+  <collection: replace>
+    <accordion-collection:stories sortable per-section="1">
+      <header:><name:first/></header:>
+      <default:>
+        <repeat>
+          <accordion-collection:tasks sortable per-section="2">
+            <header:><name:first/> &mdash; <name:last/></header:>
+          </accordion-collection>
+        </repeat>
+      </default:>
+    </accordion-collection>
+  </collection:>
+</show-page>
