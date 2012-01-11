@@ -38,7 +38,7 @@ class AjaxFormTest < ActionDispatch::IntegrationTest
   end
 
   test "ajax forms" do
-    Capybara.current_driver = :selenium
+    Capybara.current_driver = :selenium_chrome
     Capybara.default_wait_time = 10
     visit root_path
 
