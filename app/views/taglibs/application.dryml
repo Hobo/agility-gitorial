@@ -27,6 +27,21 @@
   </old-form>
 </extend>
 
+<extend tag="form" for="Project">
+  <old-form merge>
+    <field-list: replace>
+      <do part="project-form">
+        <field-list fields="name, country, region, city">
+          <country-view:><hot-input ajax selector="select"><combobox><select-one limit="5000"/></combobox></hot-input></country-view:>
+          <region-label:><%= this_parent.country._?.region_label %></region-label:>
+          <region-view:><if test="&this_parent.country._?.regions"><combobox/></if></region-view:>
+        </field-list>
+      </do>
+    </field-list:>
+  </old-form>
+</extend>
+
+
 <extend tag="card" for="ProjectMembership">
   <old-card merge>
     <body:>

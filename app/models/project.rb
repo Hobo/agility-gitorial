@@ -4,12 +4,13 @@ class Project < ActiveRecord::Base
 
   fields do
     name :string
+    city :string
     timestamps
   end
 
   has_attached_file :report
-  
-  has_many :stories, :dependent => :destroy, :accessible => true
+
+  has_many :stories, :dependent => :destroy, :accessible => true, :include => [:tasks => :story]
 
   children :stories, :memberships
 
@@ -20,6 +21,9 @@ class Project < ActiveRecord::Base
 
   has_many :contributor_memberships, :class_name => "ProjectMembership", :scope => :contributor
   has_many :contributors, :through => :contributor_memberships, :source => :user
+
+  belongs_to :country
+  belongs_to :region, :conditions => Proc.new {"regions.country_id = #{country_id || 0}"}
 
   # permission helper
   def accepts_changes_from?(user)
