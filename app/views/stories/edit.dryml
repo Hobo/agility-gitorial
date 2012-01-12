@@ -1,0 +1,9 @@
+<edit-page>
+  <form:>
+    <field-list:>
+      <status-view:>
+        <select-one-or-new-dialog/>
+      </status-view:>
+    </field-list:>
+  </form:>
+</edit-page>

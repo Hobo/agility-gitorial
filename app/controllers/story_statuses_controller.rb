@@ -12,7 +12,12 @@ class StoryStatusesController < ApplicationController
         respond_to do |wants|
           wants.html { redirect_after_submit }
           wants.js   {
-            self.this = StoryStatus.all.paginate
+            if params[:page_path] =~ /projects\/(.*)\/stories\/new$/
+              self.this = Project.find($1).stories.build
+            else
+              # is index2, index3 or index4
+              self.this = StoryStatus.all.paginate
+            end
             hobo_ajax_response
           }
         end
