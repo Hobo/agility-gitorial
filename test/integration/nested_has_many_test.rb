@@ -3,7 +3,7 @@ require 'test_helper'
 require 'capybara'
 require 'capybara/dsl'
 require 'database_cleaner'
-require 'ruby-debug'
+#require 'ruby-debug'
 
 Capybara.app = Agility::Application
 Capybara.default_driver = :rack_test

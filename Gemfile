@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.10'
+gem 'rails', '3.1.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -15,9 +15,9 @@ gem 'sqlite3'
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 # gem 'ruby-debug'
-group :development do
-  gem 'ruby-debug19'
-end
+#group :development do
+#  gem 'ruby-debug19'
+#end
 
 # Bundle the extra gems:
 # gem 'bj'
@@ -31,9 +31,10 @@ end
 # group :development, :test do
 #   gem 'webrat'
 # end
-
-gem 'hobo', :git => 'git://github.com/tablatom/hobo.git', :branch => 'jquery'
-
+gem "hobo_support", :path => "/Users/dd/dev/hobo3/hobo_support"
+gem "hobo_fields", :path => "/Users/dd/dev/hobo3/hobo_fields"
+gem "dryml", :path => "/Users/dd/dev/hobo3/dryml"
+gem "hobo", :path => "/Users/dd/dev/hobo3/hobo"
 gem "bluecloth"
 gem "RedCloth"
 

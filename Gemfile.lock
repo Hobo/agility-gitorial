@@ -1,0 +1,192 @@
+GIT
+  remote: git://github.com/bryanlarsen/hobo-jquery.git
+  revision: 0a08832c755316294280d4e080ff5517c9aa8c84
+  branch: no-prototype
+  specs:
+    hobo-jquery (1.3.0pre1)
+      jquery-rails
+
+GIT
+  remote: git://github.com/jeanmartin/paperclip.git
+  revision: 4095e07adaace2a123cbd031fa268928f3b0ce87
+  branch: master
+  specs:
+    paperclip (2.3.10)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
+
+GIT
+  remote: git://github.com/jnicklas/capybara.git
+  revision: edd4283edfe702674a4caa4b8278f3c2f4750e7d
+  specs:
+    capybara (1.1.2)
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      selenium-webdriver (~> 2.0)
+      xpath (~> 0.1.4)
+
+GIT
+  remote: git://github.com/thoughtbot/capybara-webkit.git
+  revision: 352823dc06f815d042806c3bf61f38e6fd71029b
+  specs:
+    capybara-webkit (0.7.2)
+      capybara (>= 1.0.0, < 1.2)
+
+PATH
+  remote: /Users/dd/dev/hobo3/dryml
+  specs:
+    dryml (1.4.0.pre1)
+      actionpack (~> 3.1.0)
+      hobo_support (= 1.4.0.pre1)
+
+PATH
+  remote: /Users/dd/dev/hobo3/hobo
+  specs:
+    hobo (1.4.0.pre1)
+      dryml (= 1.4.0.pre1)
+      hobo_fields (= 1.4.0.pre1)
+      hobo_support (= 1.4.0.pre1)
+      will_paginate (~> 3.0.0)
+
+PATH
+  remote: /Users/dd/dev/hobo3/hobo_fields
+  specs:
+    hobo_fields (1.4.0.pre1)
+      hobo_support (= 1.4.0.pre1)
+
+PATH
+  remote: /Users/dd/dev/hobo3/hobo_support
+  specs:
+    hobo_support (1.4.0.pre1)
+      rails (~> 3.1.0)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    RedCloth (4.2.9)
+    actionmailer (3.1.3)
+      actionpack (= 3.1.3)
+      mail (~> 2.3.0)
+    actionpack (3.1.3)
+      activemodel (= 3.1.3)
+      activesupport (= 3.1.3)
+      builder (~> 3.0.0)
+      erubis (~> 2.7.0)
+      i18n (~> 0.6)
+      rack (~> 1.3.5)
+      rack-cache (~> 1.1)
+      rack-mount (~> 0.8.2)
+      rack-test (~> 0.6.1)
+      sprockets (~> 2.0.3)
+    activemodel (3.1.3)
+      activesupport (= 3.1.3)
+      builder (~> 3.0.0)
+      i18n (~> 0.6)
+    activerecord (3.1.3)
+      activemodel (= 3.1.3)
+      activesupport (= 3.1.3)
+      arel (~> 2.2.1)
+      tzinfo (~> 0.3.29)
+    activeresource (3.1.3)
+      activemodel (= 3.1.3)
+      activesupport (= 3.1.3)
+    activesupport (3.1.3)
+      multi_json (~> 1.0)
+    arel (2.2.1)
+    bluecloth (2.2.0)
+    builder (3.0.0)
+    childprocess (0.3.0)
+      ffi (~> 1.0.6)
+    database_cleaner (0.7.1)
+    erubis (2.7.0)
+    factory_girl (2.4.0)
+      activesupport
+    factory_girl_rails (1.5.0)
+      factory_girl (~> 2.4.0)
+      railties (>= 3.0.0)
+    ffi (1.0.11)
+    hike (1.2.1)
+    i18n (0.6.0)
+    jquery-rails (1.0.19)
+      railties (~> 3.0)
+      thor (~> 0.14)
+    json (1.6.5)
+    mail (2.3.0)
+      i18n (>= 0.4.0)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
+    mime-types (1.17.2)
+    multi_json (1.0.4)
+    nokogiri (1.5.0)
+    polyglot (0.3.3)
+    rack (1.3.6)
+    rack-cache (1.1)
+      rack (>= 0.4)
+    rack-mount (0.8.3)
+      rack (>= 1.0.0)
+    rack-ssl (1.3.2)
+      rack
+    rack-test (0.6.1)
+      rack (>= 1.0)
+    rails (3.1.3)
+      actionmailer (= 3.1.3)
+      actionpack (= 3.1.3)
+      activerecord (= 3.1.3)
+      activeresource (= 3.1.3)
+      activesupport (= 3.1.3)
+      bundler (~> 1.0)
+      railties (= 3.1.3)
+    railties (3.1.3)
+      actionpack (= 3.1.3)
+      activesupport (= 3.1.3)
+      rack-ssl (~> 1.3.2)
+      rake (>= 0.8.7)
+      rdoc (~> 3.4)
+      thor (~> 0.14.6)
+    rake (0.9.2.2)
+    rdoc (3.12)
+      json (~> 1.4)
+    rubyzip (0.9.5)
+    selenium-webdriver (2.17.0)
+      childprocess (>= 0.2.5)
+      ffi (~> 1.0.9)
+      multi_json (~> 1.0.4)
+      rubyzip
+    shoulda (2.11.3)
+    sprockets (2.0.3)
+      hike (~> 1.2)
+      rack (~> 1.0)
+      tilt (~> 1.1, != 1.3.0)
+    sqlite3 (1.3.5)
+    thor (0.14.6)
+    tilt (1.3.3)
+    treetop (1.4.10)
+      polyglot
+      polyglot (>= 0.3.1)
+    tzinfo (0.3.31)
+    will_paginate (3.0.2)
+    xpath (0.1.4)
+      nokogiri (~> 1.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  RedCloth
+  bluecloth
+  capybara!
+  capybara-webkit!
+  database_cleaner
+  dryml!
+  factory_girl_rails
+  hobo!
+  hobo-jquery!
+  hobo_fields!
+  hobo_support!
+  jquery-rails
+  paperclip!
+  rails (= 3.1.3)
+  shoulda
+  sqlite3

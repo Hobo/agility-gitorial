@@ -4,5 +4,4 @@ log/*.log
 tmp/
 app/views/taglibs/auto/**/*
 config/hobo_routes.rb
-Gemfile.lock
 patches-master
