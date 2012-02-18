@@ -24,5 +24,11 @@ Agility::Application.configure do
 
   # turn this off after you're done translating
   # config.hobo.show_translation_keys = true
+
+  # Do not compress assets
+  config.assets.compress = false
+
+  # Expands the lines which load the assets
+  config.assets.debug = true
 end
 
