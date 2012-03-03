@@ -13,6 +13,17 @@ Capybara.register_driver :selenium_chrome do |app|
   Capybara::Selenium::Driver.new(app, :browser => :chrome)
 end
 
+def retry_on_timeout(n = 3, &block)
+  block.call
+rescue Capybara::TimeoutError, Capybara::ElementNotFound => e
+  if n > 0
+    puts "Catched error: #{e.message}. #{n-1} more attempts."
+    retry_on_timeout(n - 1, &block)
+  else
+    raise
+  end
+end
+
 class CreateAccountTest < ActionDispatch::IntegrationTest
   include Capybara::DSL
   self.use_transactional_fixtures = false
@@ -117,7 +128,8 @@ class CreateAccountTest < ActionDispatch::IntegrationTest
     # add Second User to First Task
     click_link "First Project"
     click_link "First Story"
-    click_link "Edit Task"
+
+    find("ul.tasks li:nth-child(1) a.task-link").click    # arg, real CSS doesn't have :first!
     find("div.task-users select").select("Second User")
     click_button "Save Task"
     assert has_content?("Assigned users: Test User, Second User")

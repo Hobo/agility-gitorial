@@ -39,7 +39,7 @@ class Foo < ActiveRecord::Base
   validate :v_must_be_true
 
   def v_must_be_true
-    errors.add_to_base("v must be true") unless v==true
+    errors[:base] << "v must be true" unless v==true
   end
 
   # --- Hobo Permissions --- #

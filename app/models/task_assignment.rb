@@ -6,8 +6,8 @@ class TaskAssignment < ActiveRecord::Base
     timestamps
   end
 
-  belongs_to :user
-  belongs_to :task
+  belongs_to :user, :inverse_of => :task_assignments
+  belongs_to :task, :inverse_of => :task_assignments
 
   # --- Permissions --- #
 

@@ -7,5 +7,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require hobo-jquery
+//= require hobo_jquery
 //= require_tree .
+
+jQuery(document).ready(function() {
+    jQuery(document).hjq();
+});
+

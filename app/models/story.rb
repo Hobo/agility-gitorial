@@ -8,10 +8,10 @@ class Story < ActiveRecord::Base
     timestamps
   end
 
-  belongs_to :project
+  belongs_to :project, :inverse_of => :stories
   belongs_to :status, :class_name => "StoryStatus"
 
-  has_many :tasks, :dependent => :destroy, :order => :position, :accessible => true
+  has_many :tasks, :dependent => :destroy, :order => :position, :accessible => true, :inverse_of => :story
 
   children :tasks
 

@@ -8,15 +8,15 @@ class Project < ActiveRecord::Base
   end
 
   has_attached_file :report
-  
-  has_many :stories, :dependent => :destroy, :accessible => true
+
+  has_many :stories, :dependent => :destroy, :accessible => true, :inverse_of => :project
 
   children :stories, :memberships
 
-  has_many :memberships, :class_name => "ProjectMembership", :dependent => :destroy
+  has_many :memberships, :class_name => "ProjectMembership", :dependent => :destroy, :inverse_of => :project
   has_many :members, :through => :memberships, :source => :user
 
-  belongs_to :owner, :class_name => "User", :creator => true
+  belongs_to :owner, :class_name => "User", :creator => true, :inverse_of => :projects
 
   has_many :contributor_memberships, :class_name => "ProjectMembership", :scope => :contributor
   has_many :contributors, :through => :contributor_memberships, :source => :user

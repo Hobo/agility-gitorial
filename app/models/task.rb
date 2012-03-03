@@ -9,7 +9,7 @@ class Task < ActiveRecord::Base
 
   belongs_to :story
 
-  has_many :task_assignments, :dependent => :destroy
+  has_many :task_assignments, :dependent => :destroy, :inverse_of => :task
   has_many :users, :through => :task_assignments, :accessible => true, :dependent => :destroy
 
   acts_as_list :scope => :story

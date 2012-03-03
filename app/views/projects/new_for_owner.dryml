@@ -1,5 +1,3 @@
 <new-for-owner-page>
-  <form:>
-    <field-list: fields="name"/>
-  </form:>
+  <heading:> asdfasdfsadf asdf</heading:>
 </new-for-owner-page>

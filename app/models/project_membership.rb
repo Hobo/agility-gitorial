@@ -7,8 +7,8 @@ class ProjectMembership < ActiveRecord::Base
     timestamps
   end
 
-  belongs_to :project
-  belongs_to :user
+  belongs_to :project, :inverse_of => :memberships
+  belongs_to :user, :inverse_of => :project_memberships
 
   # --- Permissions --- #
 

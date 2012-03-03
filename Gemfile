@@ -35,6 +35,10 @@ gem "hobo_support", :path => "/work/hobo/hobo_support"
 gem "hobo_fields", :path => "/work/hobo/hobo_fields"
 gem "dryml", :path => "/work/hobo/dryml"
 gem "hobo", :path => "/work/hobo/hobo"
+gem "hobo_rapid", :path => "/work/hobo/hobo_rapid"
+gem "hobo_clean", :path => "/work/hobo/hobo_clean"
+gem "hobo_jquery", :path => "/work/hobo/hobo_jquery"
+
 gem "bluecloth"
 gem "RedCloth"
 
@@ -42,7 +46,7 @@ gem "shoulda", :group => :test
 gem "factory_girl_rails", :group => :test
 
 group :development, :test do
-  gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
+  gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'#, :ref => "83d8574c1d"  #"756ec1b2af70c66093c3b25976f520a3e6c3c2ae"
   gem 'capybara-webkit', :git => 'git://github.com/thoughtbot/capybara-webkit.git'
   gem 'database_cleaner'
 end
@@ -50,7 +54,6 @@ end
 gem "jquery-rails"
 
 #gem "hobo-jquery", :git => "git://github.com/bryanlarsen/hobo-jquery.git", :branch => "no-prototype"
-gem "hobo-jquery", :path => "/work/hobo-jquery"
 
 gem 'paperclip', :git => "git://github.com/jeanmartin/paperclip.git", :branch => "master"
 
@@ -62,3 +65,5 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'rails-dev-tweaks'
+gem 'awesome_print'

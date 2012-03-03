@@ -67,3 +67,14 @@
     </before-header:>
   </old-page>
 </extend>
+
+
+<def tag="form" for="Project">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="name, report_file_name, report_content_type, report_file_size, report_updated_at, owner, stories" param/>
+    <div param="actions">
+      <submit label="#{ht 'project.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
