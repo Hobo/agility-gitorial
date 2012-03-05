@@ -49,6 +49,7 @@ class EditorsTest < ActionDispatch::IntegrationTest
     visit root_path
 
     # log in as Administrator
+    click_link "Log out" rescue Capybara::ElementNotFound
     click_link "Login"
     fill_in "login", :with => "admin@example.com"
     fill_in "password", :with => "test123"

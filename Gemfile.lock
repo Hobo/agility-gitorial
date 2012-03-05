@@ -47,7 +47,7 @@ PATH
   remote: /work/hobo/hobo_clean
   specs:
     hobo_clean (1.4.0.pre1)
-      rails (~> 3.1.0)
+      hobo (= 1.4.0.pre1)
 
 PATH
   remote: /work/hobo/hobo_fields

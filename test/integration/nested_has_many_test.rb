@@ -38,6 +38,7 @@ class NestedHasManyTest < ActionDispatch::IntegrationTest
     visit root_path
 
     # log in as Administrator
+    click_link "Log out" rescue Capybara::ElementNotFound
     click_link "Login"
     fill_in "login", :with => "admin@example.com"
     fill_in "password", :with => "test123"
@@ -81,7 +82,7 @@ class NestedHasManyTest < ActionDispatch::IntegrationTest
 
     # verify save
     click_button "Save"
-    assert find("td.tasks-count-view span").has_text?("3")
+    assert find(".table-plus tr:first-child td.tasks-count-view span").has_text?("3")
     visit "/projects/#{@project.id}/nested_has_many_test"
 
     # verify remove inner

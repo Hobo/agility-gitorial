@@ -1,10 +1,11 @@
 /*
- * This is a manifest file that'll automatically include all the stylesheets available in this directory
- * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
- * the top of the compiled file, but it's generally better to create a new file per style scope.
+ * This is the global stylesheet manifest file.  Files or plugins
+ * referenced from here or placed in the application/ directory will be
+ * included in all subsites.  This file is included by front.css and all
+ * subsites.
+ *
  *= require_self
- *= require hobo_clean
  *= require hobo_rapid
  *= require hobo_jquery
- *= require_tree .
+ *= require_tree ./application
 */

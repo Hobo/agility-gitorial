@@ -42,6 +42,7 @@ class LifecycleTest < ActionDispatch::IntegrationTest
     click_button "Create Foo"
     click_button "Trans1"
     uncheck "foo[v]"
+    sleep 1
     click_button "Trans1"
     assert has_content?("v must be true")
     check "foo[v]"
