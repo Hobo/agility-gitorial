@@ -31,7 +31,7 @@ class EditorsTest < ActionDispatch::IntegrationTest
     assert find("#{selector} .in-place-edit").has_no_text?(text_value)
     find("#{selector} .in-place-edit").click
     find("#{selector} input[type=text],#{selector} textarea").set(value)
-    find("h2").click # just to get a blur
+    find("h2.heading").click # just to get a blur
     assert find("#{selector} .in-place-edit").has_text?(text_value)
     @verify_list << { :selector => selector, :value => text_value }
   end
@@ -74,12 +74,12 @@ class EditorsTest < ActionDispatch::IntegrationTest
     use_editor ".md-view", "*this* is **markdown**", "this is markdown"
     use_editor ".hh-view", "<i>this</i> is <b>HTML</b>", "this is HTML"
 
-    find(".bool1-view input").click
+    find(".bool1-view input[type=checkbox]").click
     @verify_list << { :selector => ".bool1-view", :value => "Yes" }
 
-    find(".bool2-view input").click
+    find(".bool2-view input[type=checkbox]").click
     wait_for_updates_to_finish
-    find(".bool2-view input").click
+    find(".bool2-view input[type=checkbox]").click
     @verify_list << { :selector => ".bool2-view", :value => "No" }
 
     find(".es-view select").select("C")
@@ -89,7 +89,7 @@ class EditorsTest < ActionDispatch::IntegrationTest
       fill_in "foo[i]", :with => "17"
       click_button "reload editors"
     else
-      fill_in "foo[i]", :with => "192"
+      find("#bug305i input.foo-i").set("192")
       click_button "reload editors"
 
       assert find(".i-view .in-place-edit").has_text?("192")
@@ -97,7 +97,7 @@ class EditorsTest < ActionDispatch::IntegrationTest
       find(".i-view .in-place-edit").click
       # selenium crashes on this line
       find(".i-view input[type=text]").set('17')
-      find("h2").click # just to get a blur
+      find("h2.heading").click # just to get a blur
       assert find(".i-view .in-place-edit").has_text?('17')
     end
 

@@ -6,7 +6,10 @@
       <editor-field-list />
     </do>
     <form update="bug305part">
-      <input:i/>
+      <div id="bug305i">
+        305i:
+        <input:i/>
+      </div>
       <submit label="reload editors"/>
     </form>
     <%= link_to( "exit editors", this, :id => "exit" ) %>

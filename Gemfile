@@ -31,13 +31,14 @@ end
 # group :development, :test do
 #   gem 'webrat'
 # end
-gem "hobo_support", :path => "/work/hobo/hobo_support"
-gem "hobo_fields", :path => "/work/hobo/hobo_fields"
-gem "dryml", :path => "/work/hobo/dryml"
-gem "hobo", :path => "/work/hobo/hobo"
-gem "hobo_rapid", :path => "/work/hobo/hobo_rapid"
-gem "hobo_clean", :path => "/work/hobo/hobo_clean"
-gem "hobo_jquery", :path => "/work/hobo/hobo_jquery"
+gem "hobo_support", :git => "git://github.com/tablatom/hobo.git"
+gem "hobo_fields", :git => "git://github.com/tablatom/hobo.git"
+gem "dryml", :git => "git://github.com/tablatom/hobo.git"
+gem "hobo", :git => "git://github.com/tablatom/hobo.git"
+gem "hobo_rapid", :git => "git://github.com/tablatom/hobo.git"
+gem "hobo_clean", :git => "git://github.com/tablatom/hobo.git"
+gem "hobo_jquery", :git => "git://github.com/tablatom/hobo.git"
+gem "hobo_jquery_ui", :git => "git://github.com/tablatom/hobo.git"
 
 gem "bluecloth"
 gem "RedCloth"
@@ -47,7 +48,8 @@ gem "factory_girl_rails", :group => :test
 
 group :development, :test do
   gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'#, :ref => "83d8574c1d"  #"756ec1b2af70c66093c3b25976f520a3e6c3c2ae"
-  gem 'capybara-webkit', :git => 'git://github.com/thoughtbot/capybara-webkit.git'
+#  gem 'capybara-webkit', :git => 'git://github.com/thoughtbot/capybara-webkit.git'
+  gem 'capybara-webkit', :git => 'https://github.com/josephbridgwaterrowe/capybara-webkit.git', :branch => 'patch-1'
   gem 'database_cleaner'
 end
 
