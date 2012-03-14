@@ -83,7 +83,7 @@ class EditorsTest < ActionDispatch::IntegrationTest
     @verify_list << { :selector => ".bool2-view", :value => "No" }
 
     find(".es-view select").select("C")
-    @verify_list << { :selector => ".es-view", :value => "c" }
+    @verify_list << { :selector => ".es-view", :value => "C" }
 
     if Capybara.current_driver == :selenium
       fill_in "foo[i]", :with => "17"
