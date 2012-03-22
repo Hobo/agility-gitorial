@@ -85,3 +85,7 @@
     </div>
   </form>
 </def>
+
+<def tag="field-list">
+  <field-list-v1 merge/>
+</def>
