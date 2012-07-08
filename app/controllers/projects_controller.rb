@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
 
   hobo_model_controller
 
-  auto_actions :show, :edit, :update, :destroy
+  auto_actions :show, :edit, :update, :destroy, :create
 
   auto_actions_for :owner, [:new, :create]
 

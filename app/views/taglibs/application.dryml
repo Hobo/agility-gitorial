@@ -12,6 +12,10 @@
 <include src="taglibs/auto/rapid/pages"/>
 <include src="taglibs/auto/rapid/forms"/>
 
+<include gem='hobo_simple_color'/>
+
+<include gem='hobo_tokeninput'/>
+
 <set-theme name="clean"/>
 
 <extend tag="card" for="Task">
@@ -27,6 +31,26 @@
 <extend tag="form" for="Task">
   <old-form merge>
     <field-list: fields="description, users"/>
+  </old-form>
+</extend>
+
+<extend tag="form" for="Story">
+  <old-form merge>
+    <field-list: fields="title, body, color, project, status">
+      <status-view:>
+        <name-one/>
+      </status-view:>
+    </field-list:>
+  </old-form>
+</extend>
+
+<extend tag="form" for="Foo">
+  <old-form merge>
+    <field-list:>
+      <bazs-view:>
+        <name-many/>
+      </bazs-view:>
+    </field-list:>
   </old-form>
 </extend>
 
@@ -79,7 +103,7 @@
 <def tag="form" for="Project">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="name, report_file_name, report_content_type, report_file_size, report_updated_at, owner, stories" param/>
+    <field-list fields="name, report, owner, stories" param/>
     <div param="actions">
       <submit label="#{ht 'project.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>

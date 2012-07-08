@@ -3,6 +3,7 @@ FactoryGirl.define do
     title   "Sample Story"
     body    "lorem ipsum blah blah blah"
     project
+    color   "#000000"
   end
 
   factory :project do

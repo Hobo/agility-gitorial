@@ -5,6 +5,7 @@ class Story < ActiveRecord::Base
   fields do
     title  :string
     body   :markdown # or :textile
+    color  Color, :default => "#000000"
     timestamps
   end
 

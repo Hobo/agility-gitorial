@@ -40,6 +40,8 @@ gem "hobo_clean", :git => "git://github.com/tablatom/hobo.git"
 gem "hobo_jquery", :git => "git://github.com/tablatom/hobo.git"
 gem "hobo_jquery_ui", :git => "git://github.com/tablatom/hobo.git"
 
+gem "jquery-ui-themes", "~> 0.0.4"
+
 gem "bluecloth"
 gem "RedCloth"
 
@@ -69,3 +71,5 @@ end
 
 gem 'rails-dev-tweaks'
 gem 'awesome_print'
+gem "hobo_simple_color", :path => "/work/hobo_simple_color/"
+gem "hobo_tokeninput", :path => "/work/hobo_tokeninput"

@@ -6,6 +6,8 @@ class StoryStatusesController < ApplicationController
 
   index_action :index2, :index3, :index4
 
+  autocomplete
+
   def create
     hobo_create do
       if valid?

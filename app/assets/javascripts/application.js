@@ -11,4 +11,6 @@
 //= require hobo_rapid
 //= require hobo_jquery
 //= require hobo_jquery_ui
+//= require hobo_simple_color
+//= require hobo_tokeninput
 //= require_tree ./application

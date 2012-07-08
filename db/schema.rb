@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111123020948) do
+ActiveRecord::Schema.define(:version => 20120111022145) do
 
   create_table "bars", :force => true do |t|
     t.string  "name"
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(:version => 20111123020948) do
 
   create_table "bazs", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "countries", :force => true do |t|
+    t.string   "name"
+    t.string   "code"
+    t.string   "region_label"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -88,9 +96,24 @@ ActiveRecord::Schema.define(:version => 20111123020948) do
     t.string   "report_content_type"
     t.integer  "report_file_size"
     t.datetime "report_updated_at"
+    t.string   "city"
+    t.integer  "country_id"
+    t.integer  "region_id"
   end
 
+  add_index "projects", ["country_id"], :name => "index_projects_on_country_id"
   add_index "projects", ["owner_id"], :name => "index_projects_on_owner_id"
+  add_index "projects", ["region_id"], :name => "index_projects_on_region_id"
+
+  create_table "regions", :force => true do |t|
+    t.string   "name"
+    t.string   "code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "country_id"
+  end
+
+  add_index "regions", ["country_id"], :name => "index_regions_on_country_id"
 
   create_table "stories", :force => true do |t|
     t.string   "title"
@@ -99,6 +122,7 @@ ActiveRecord::Schema.define(:version => 20111123020948) do
     t.datetime "updated_at"
     t.integer  "project_id"
     t.integer  "status_id"
+    t.string   "color",      :default => "#000000"
   end
 
   add_index "stories", ["project_id"], :name => "index_stories_on_project_id"
