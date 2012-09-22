@@ -8,6 +8,17 @@
         <input:report/>
         <submit label="upload new report"/>
       </form>
+
+      <form id="name-form" multipart ajax>
+        <input:name/>
+        <submit label="update name without errors-ok"/>
+      </form>
+
+      <form id="name-form-ok" multipart ajax errors-ok>
+        <error-messages/>
+        <input:name/>
+        <submit label="update name with errors-ok"/>
+      </form>
     </div>
   </field-list:>
 

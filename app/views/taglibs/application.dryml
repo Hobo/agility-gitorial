@@ -16,7 +16,7 @@
 
 <include gem='hobo_tokeninput'/>
 
-<set-theme name="clean"/>
+<include gem="hobo_clean"/>
 
 <extend tag="card" for="Task">
   <old-card merge>
@@ -36,10 +36,13 @@
 
 <extend tag="form" for="Story">
   <old-form merge>
-    <field-list: fields="title, body, color, project, status">
+    <field-list: fields="title, body, color, project, status, tasks">
       <status-view:>
         <name-one/>
       </status-view:>
+      <tasks-view:>
+        <sortable-input-many/>
+      </tasks-view:>
     </field-list:>
   </old-form>
 </extend>
@@ -101,7 +104,7 @@
 
 
 <def tag="form" for="Project">
-  <form merge param="default">
+  <form merge param="default" multipart>
     <error-messages param/>
     <field-list fields="name, report, owner, stories" param/>
     <div param="actions">
@@ -112,4 +115,18 @@
 
 <def tag="field-list">
   <field-list-v1 merge/>
+</def>
+
+<def tag="search-card" for="Project">
+  <card class="project" param="default" merge>
+    <header: param>
+      Search result: <h4 param="heading"><a><name/></a></h4>
+    </header:>
+    <body: param>
+      <a:owner param="creator-link"/>
+      <ht key="story.collection.count" count="&this.stories.size">
+         <count:stories param/>
+      </ht>
+    </body:>
+  </card>
 </def>

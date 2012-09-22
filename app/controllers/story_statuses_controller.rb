@@ -10,35 +10,22 @@ class StoryStatusesController < ApplicationController
 
   def create
     hobo_create do
-      if valid?
-        respond_to do |wants|
-          wants.html { redirect_after_submit }
-          wants.js   {
-            self.this = StoryStatus.all.paginate
-            hobo_ajax_response
-          }
-        end
+      if valid? && request.xhr?
+        self.this = StoryStatus.all.paginate
+        hobo_ajax_response
       else
-        respond_to do |wants|
-          # errors is used by the translation helper, ht, below.
-          errors = this.errors.full_messages.join("\n")
-          wants.html { re_render_form(new_action) }
-          wants.js   { render(:status => 500,
-                              :text => ht( :"#{this.class.to_s.underscore}.messages.create.error", :errors=>errors,:default=>["Couldn't create the #{this.class.name.titleize.downcase}.\n #{errors}"])
-                               )}
-        end
+        create_response(:new)
       end
     end
   end
 
   def destroy
     hobo_destroy do
-      respond_to do |wants|
-        wants.html { redirect_after_submit(this, true) }
-        wants.js   {
-          self.this = StoryStatus.all.paginate
-          hobo_ajax_response || render(:nothing => true)
-        }
+      if request.xhr?
+        self.this = StoryStatus.all.paginate
+        hobo_ajax_response || render(:nothing => true)
+      else
+        destroy_response
       end
     end
   end

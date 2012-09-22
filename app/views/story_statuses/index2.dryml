@@ -21,7 +21,7 @@
 
       <card>
         <form id="form2" with="&StoryStatus.new" updates="#body">
-          With updates=
+          With updates= and errors-ok
           <field-list/>
           <submit label="new"/>
         </form>

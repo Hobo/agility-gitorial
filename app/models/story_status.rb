@@ -7,6 +7,12 @@ class StoryStatus < ActiveRecord::Base
     timestamps
   end
 
+  validate :name_must_be_valid
+
+  def name_must_be_valid
+    errors[:base] << "name not valid" if name=="invalid name"
+  end
+
   # --- Permissions --- #
 
   def create_permitted?

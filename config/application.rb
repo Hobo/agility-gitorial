@@ -19,7 +19,9 @@ module Agility
     end
 
   
-  config.hobo.dryml_only_templates = true
+    config.hobo.dryml_only_templates = true
+
+    config.hobo.dont_emit_deprecated_routes = true
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

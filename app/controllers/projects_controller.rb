@@ -8,6 +8,8 @@ class ProjectsController < ApplicationController
 
   show_action :show2, :show_with_controls, :nested_has_many_test, :dialog_test
 
+  respond_to :html, :xml, :json
+
   def show
     @project = find_instance
     @stories =
@@ -17,5 +19,7 @@ class ProjectsController < ApplicationController
   end
 
   def show2; show; end
+
+  def show_with_controls; show; end
 
 end

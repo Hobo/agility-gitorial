@@ -23,7 +23,7 @@ class UsersController < ApplicationController
         
         # FIXME: remove these two lines after you get email working reliably
         # and before your application leaves its sandbox...
-        secret_path = user_activate_path :id=>this.id, :key => this.lifecycle.key
+        secret_path = activate_user_path :id=>this.id, :key => this.lifecycle.key
         flash[:notice] = "Thanks for signing up!  The 'secret' link that was just emailed was: <a id='activation-link' href='#{secret_path}'>#{secret_path}</a>.".html_safe
       end
     end

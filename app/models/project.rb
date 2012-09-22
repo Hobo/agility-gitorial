@@ -7,6 +7,12 @@ class Project < ActiveRecord::Base
     timestamps
   end
 
+  validate :name_must_be_valid
+
+  def name_must_be_valid
+    errors[:base] << "name not valid" if name=="invalid name"
+  end
+
   has_attached_file :report
 
   has_many :stories, :dependent => :destroy, :accessible => true, :inverse_of => :project

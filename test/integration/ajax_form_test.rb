@@ -37,6 +37,14 @@ class AjaxFormTest < ActionDispatch::IntegrationTest
     end
   end
 
+  def wait_for_ajax(timeout = Capybara.default_wait_time)
+    sleep 0.1
+    while page.evaluate_script 'jQuery.active == 0'
+      sleep 0.1
+    end
+  end
+
+
   test "ajax forms" do
     Capybara.current_driver = :selenium_chrome
     Capybara.default_wait_time = 10
@@ -117,5 +125,19 @@ class AjaxFormTest < ActionDispatch::IntegrationTest
     find(".story.even input.story-title").native.send_key(:return)
     assert find(".story.even .view.story-title").has_content?("s2")
     assert find(".story.even .ixz").has_content?("2")
+
+    # update name without errors-ok should display alert
+    visit "/projects/#{@project.id}/show2"
+    find("#name-form").fill_in("project_name", :with => "invalid name")
+    find("#name-form .submit-button").click
+    sleep 1 # wait_for_ajax is blocked by the open dialog!
+    page.driver.browser.switch_to.alert.accept
+
+    # update name with errors-ok should display error-messages
+    visit "/projects/#{@project.id}/show2"
+    find("#name-form-ok").fill_in("project_name", :with => "invalid name")
+    find("#name-form-ok .submit-button").click
+    assert find("#name-form-ok .error-messages").has_content?("1 error")
+
   end
 end

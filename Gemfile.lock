@@ -1,15 +1,26 @@
 GIT
-  remote: git://github.com/jeanmartin/paperclip.git
-  revision: 4095e07adaace2a123cbd031fa268928f3b0ce87
-  branch: master
+  remote: git://github.com/Hobo/hobo_simple_color
+  revision: a3004f3cbebd4412647735a87ff470464a63832b
   specs:
-    paperclip (2.3.10)
-      activerecord (>= 2.3.0)
-      activesupport (>= 2.3.2)
+    hobo_simple_color (0.0.2)
+      hobo (> 1.4.0.pre4)
+
+GIT
+  remote: git://github.com/Hobo/hobo_tokeninput
+  revision: 271317004e0a3c6fd6083405b30193e3fbbae0ba
+  specs:
+    hobo_tokeninput (0.0.1)
+      hobo (> 1.4.0.pre5)
+
+GIT
+  remote: git://github.com/bryanlarsen/will_paginate.git
+  revision: 3096f88403096f7207c4c3ede0a8bb7c344bb78a
+  specs:
+    will_paginate (3.0.3)
 
 GIT
   remote: git://github.com/jnicklas/capybara.git
-  revision: c4db33a2dde43e8e6560e2519779580dd7777373
+  revision: bcae6bea021e2f77aebf6093134e23a07e415e02
   specs:
     capybara (1.1.2)
       mime-types (>= 1.16)
@@ -21,31 +32,43 @@ GIT
 
 GIT
   remote: git://github.com/tablatom/hobo.git
-  revision: 029001f4eac7c069cd808e47d5efc8c3b6d1ecc0
+  revision: 54ff318b145d10c561792056d360659ed88bbc64
   specs:
-    dryml (1.4.0.pre7)
-      actionpack (~> 3.1.0)
-      hobo_support (= 1.4.0.pre7)
-    hobo (1.4.0.pre7)
-      dryml (= 1.4.0.pre7)
-      hobo_fields (= 1.4.0.pre7)
-      hobo_support (= 1.4.0.pre7)
+    dryml (2.0.0.pre1)
+      actionpack (~> 3.2.0)
+      hobo_support (= 2.0.0.pre1)
+    hobo (2.0.0.pre1)
+      dryml (= 2.0.0.pre1)
+      hobo_fields (= 2.0.0.pre1)
+      hobo_support (= 2.0.0.pre1)
       will_paginate (~> 3.0.0)
-    hobo_clean (1.4.0.pre7)
-      hobo (= 1.4.0.pre7)
-    hobo_fields (1.4.0.pre7)
-      hobo_support (= 1.4.0.pre7)
-    hobo_jquery (1.4.0.pre7)
-      hobo (= 1.4.0.pre7)
-      jquery-rails (~> 1.0)
-    hobo_jquery_ui (1.4.0.pre7)
-      hobo (= 1.4.0.pre7)
-      hobo_jquery (= 1.4.0.pre7)
+    hobo_clean (2.0.0.pre1)
+      hobo (= 2.0.0.pre1)
+    hobo_fields (2.0.0.pre1)
+      hobo_support (= 2.0.0.pre1)
+    hobo_jquery (2.0.0.pre1)
+      hobo (= 2.0.0.pre1)
+      jquery-rails (~> 2.0)
+    hobo_jquery_ui (2.0.0.pre1)
+      hobo (= 2.0.0.pre1)
+      hobo_jquery (= 2.0.0.pre1)
       jquery-ui-themes (~> 0.0.4)
-    hobo_rapid (1.4.0.pre7)
-      hobo (= 1.4.0.pre7)
-    hobo_support (1.4.0.pre7)
-      rails (~> 3.1.0)
+    hobo_rapid (2.0.0.pre1)
+      hobo (= 2.0.0.pre1)
+    hobo_support (2.0.0.pre1)
+      rails (~> 3.2.0)
+
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 3d556955be58cea1c12c3b9b447a9fb4f673a87b
+  branch: master
+  specs:
+    paperclip (3.1.2)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (>= 0.0.2)
+      mime-types
 
 GIT
   remote: https://github.com/josephbridgwaterrowe/capybara-webkit.git
@@ -56,69 +79,63 @@ GIT
       capybara (>= 1.0.0, < 1.2)
       json
 
-PATH
-  remote: /work/hobo_simple_color
-  specs:
-    hobo_simple_color (0.0.2)
-      hobo (~> 1.4.0.pre4)
-
-PATH
-  remote: /work/hobo_tokeninput
-  specs:
-    hobo_tokeninput (0.0.1)
-      hobo (~> 1.4.0.pre5)
-
 GEM
   remote: http://rubygems.org/
   specs:
     RedCloth (4.2.9)
-    actionmailer (3.1.3)
-      actionpack (= 3.1.3)
-      mail (~> 2.3.0)
-    actionpack (3.1.3)
-      activemodel (= 3.1.3)
-      activesupport (= 3.1.3)
+    actionmailer (3.2.8)
+      actionpack (= 3.2.8)
+      mail (~> 2.4.4)
+    actionpack (3.2.8)
+      activemodel (= 3.2.8)
+      activesupport (= 3.2.8)
       builder (~> 3.0.0)
       erubis (~> 2.7.0)
-      i18n (~> 0.6)
-      rack (~> 1.3.5)
-      rack-cache (~> 1.1)
-      rack-mount (~> 0.8.2)
+      journey (~> 1.0.4)
+      rack (~> 1.4.0)
+      rack-cache (~> 1.2)
       rack-test (~> 0.6.1)
-      sprockets (~> 2.0.3)
-    activemodel (3.1.3)
-      activesupport (= 3.1.3)
+      sprockets (~> 2.1.3)
+    activemodel (3.2.8)
+      activesupport (= 3.2.8)
       builder (~> 3.0.0)
-      i18n (~> 0.6)
-    activerecord (3.1.3)
-      activemodel (= 3.1.3)
-      activesupport (= 3.1.3)
-      arel (~> 2.2.1)
+    activerecord (3.2.8)
+      activemodel (= 3.2.8)
+      activesupport (= 3.2.8)
+      arel (~> 3.0.2)
       tzinfo (~> 0.3.29)
-    activeresource (3.1.3)
-      activemodel (= 3.1.3)
-      activesupport (= 3.1.3)
-    activesupport (3.1.3)
+    activeresource (3.2.8)
+      activemodel (= 3.2.8)
+      activesupport (= 3.2.8)
+    activesupport (3.2.8)
+      i18n (~> 0.6)
       multi_json (~> 1.0)
     addressable (2.2.8)
-    archive-tar-minitar (0.5.2)
-    arel (2.2.3)
+    arel (3.0.2)
     awesome_print (1.0.2)
     bluecloth (2.2.0)
-    builder (3.0.0)
+    builder (3.0.3)
     childprocess (0.3.3)
       ffi (~> 1.0.6)
-    coffee-rails (3.1.1)
+    cocaine (0.2.1)
+    coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
-      railties (~> 3.1.0)
+      railties (~> 3.2.0)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.2.0)
+    coffee-script-source (1.3.3)
     columnize (0.3.6)
-    database_cleaner (0.7.1)
+    database_cleaner (0.8.0)
+    debugger (1.1.4)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.1.1)
+      debugger-ruby_core_source (~> 1.1.3)
+    debugger-linecache (1.1.2)
+      debugger-ruby_core_source (>= 1.1.1)
+    debugger-ruby_core_source (1.1.3)
     erubis (2.7.0)
-    execjs (1.3.0)
+    execjs (1.4.0)
       multi_json (~> 1.0)
     factory_girl (2.6.3)
       activesupport (>= 2.3.9)
@@ -127,71 +144,63 @@ GEM
       railties (>= 3.0.0)
     ffi (1.0.11)
     hike (1.2.1)
-    i18n (0.6.0)
-    jquery-rails (1.0.19)
-      railties (~> 3.0)
+    httparty (0.8.3)
+      multi_json (~> 1.0)
+      multi_xml
+    i18n (0.6.1)
+    journey (1.0.4)
+    jquery-rails (2.0.2)
+      railties (>= 3.2.0, < 5.0)
       thor (~> 0.14)
-    jquery-ui-themes (0.0.4)
-    json (1.6.5)
+    jquery-ui-themes (0.0.6)
+      httparty
+    json (1.7.4)
+    libv8 (3.3.10.4)
     libwebsocket (0.1.3)
       addressable
-    linecache19 (0.5.12)
-      ruby_core_source (>= 0.1.4)
-    mail (2.3.3)
+    mail (2.4.4)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.19)
     multi_json (1.3.6)
+    multi_xml (0.5.1)
     nokogiri (1.5.5)
     polyglot (0.3.3)
-    rack (1.3.6)
+    rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
-    rack-mount (0.8.3)
-      rack (>= 1.0.0)
     rack-ssl (1.3.2)
       rack
     rack-test (0.6.1)
       rack (>= 1.0)
-    rails (3.1.3)
-      actionmailer (= 3.1.3)
-      actionpack (= 3.1.3)
-      activerecord (= 3.1.3)
-      activeresource (= 3.1.3)
-      activesupport (= 3.1.3)
+    rails (3.2.8)
+      actionmailer (= 3.2.8)
+      actionpack (= 3.2.8)
+      activerecord (= 3.2.8)
+      activeresource (= 3.2.8)
+      activesupport (= 3.2.8)
       bundler (~> 1.0)
-      railties (= 3.1.3)
+      railties (= 3.2.8)
     rails-dev-tweaks (0.6.1)
       actionpack (~> 3.1)
       railties (~> 3.1)
-    railties (3.1.3)
-      actionpack (= 3.1.3)
-      activesupport (= 3.1.3)
+    railties (3.2.8)
+      actionpack (= 3.2.8)
+      activesupport (= 3.2.8)
       rack-ssl (~> 1.3.2)
       rake (>= 0.8.7)
       rdoc (~> 3.4)
-      thor (~> 0.14.6)
+      thor (>= 0.14.6, < 2.0)
     rake (0.9.2.2)
     rdoc (3.12)
       json (~> 1.4)
-    ruby-debug-base19 (0.11.25)
-      columnize (>= 0.3.1)
-      linecache19 (>= 0.5.11)
-      ruby_core_source (>= 0.1.4)
-    ruby-debug19 (0.11.6)
-      columnize (>= 0.3.1)
-      linecache19 (>= 0.5.11)
-      ruby-debug-base19 (>= 0.11.19)
-    ruby_core_source (0.1.5)
-      archive-tar-minitar (>= 0.5.2)
     rubyzip (0.9.9)
-    sass (3.1.15)
-    sass-rails (3.1.5)
-      actionpack (~> 3.1.0)
-      railties (~> 3.1.0)
-      sass (~> 3.1.10)
-      tilt (~> 1.3.2)
+    sass (3.1.20)
+    sass-rails (3.2.5)
+      railties (~> 3.2.0)
+      sass (>= 3.1.10)
+      tilt (~> 1.3)
     selenium-webdriver (2.24.0)
       childprocess (>= 0.2.5)
       libwebsocket (~> 0.1.3)
@@ -202,21 +211,22 @@ GEM
       shoulda-matchers (~> 1.0.0)
     shoulda-context (1.0.0)
     shoulda-matchers (1.0.0)
-    sprockets (2.0.3)
+    sprockets (2.1.3)
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.5)
-    thor (0.14.6)
+    sqlite3 (1.3.6)
+    therubyracer (0.10.1)
+      libv8 (~> 3.3.10)
+    thor (0.15.4)
     tilt (1.3.3)
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.32)
-    uglifier (1.2.3)
+    tzinfo (0.3.33)
+    uglifier (1.2.6)
       execjs (>= 0.3.0)
-      multi_json (>= 1.0.2)
-    will_paginate (3.0.3)
+      multi_json (~> 1.3)
     xpath (0.1.4)
       nokogiri (~> 1.3)
 
@@ -229,8 +239,9 @@ DEPENDENCIES
   bluecloth
   capybara!
   capybara-webkit!
-  coffee-rails (~> 3.1.1)
+  coffee-rails (~> 3.2.1)
   database_cleaner
+  debugger
   dryml!
   factory_girl_rails
   hobo!
@@ -245,10 +256,11 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-themes (~> 0.0.4)
   paperclip!
-  rails (= 3.1.3)
+  rails (= 3.2.8)
   rails-dev-tweaks
-  ruby-debug19
-  sass-rails (~> 3.1.5)
+  sass-rails (~> 3.2.3)
   shoulda
   sqlite3
+  therubyracer
   uglifier (>= 1.0.3)
+  will_paginate!
