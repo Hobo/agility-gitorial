@@ -49,3 +49,5 @@ gem "jquery-ui-themes", "~> 0.0.4"
 
 gem "acts_as_list"
 gem "bluecloth"
+gem "shoulda", :group => :test
+gem "factory_girl_rails", :group => :test

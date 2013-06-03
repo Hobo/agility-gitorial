@@ -17,6 +17,13 @@ module Agility
     config.hobo.dryml_only_templates = true
     # Hobo: the front subsite loads front.css & front.js
     config.assets.precompile += %w(front.css front.js)
+
+    config.generators do |g|
+      g.test_framework :shoulda, :fixtures => true
+      g.fallbacks[:shoulda] = :test_unit
+      g.fixture_replacement = :factory_girl_rails
+    end
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
