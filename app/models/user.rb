@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
   has_many :task_assignments, :dependent => :destroy, :inverse_of => :user
   has_many :tasks, :through => :task_assignments
   has_many :projects, :class_name => "Project", :foreign_key => "owner_id", :inverse_of => :owner
+  has_many :project_memberships, :dependent => :destroy, :inverse_of => :user
+  has_many :joined_projects, :through => :project_memberships, :source => :project
 
   # This gives admin rights and an :active state to the first sign-up.
   # Just remove it if you don't want that
