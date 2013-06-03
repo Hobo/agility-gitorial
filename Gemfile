@@ -51,3 +51,9 @@ gem "acts_as_list"
 gem "bluecloth"
 gem "shoulda", :group => :test
 gem "factory_girl_rails", :group => :test
+
+group :development, :test do
+  gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
+  gem 'database_cleaner'
+end
+
