@@ -14,6 +14,10 @@ class Project < ActiveRecord::Base
   children :stories
 
   belongs_to :owner, :class_name => "User", :creator => true, :inverse_of => :projects
+  has_many :memberships, :class_name => "ProjectMembership", :dependent => :destroy, :inverse_of => :project
+  has_many :members, :through => :memberships, :source => :user
+
+  belongs_to :owner, :class_name => "User", :creator => true, :inverse_of => :projects
 
   # --- Permissions --- #
 
