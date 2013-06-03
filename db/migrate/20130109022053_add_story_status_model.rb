@@ -10,6 +10,9 @@ class AddStoryStatusModel < ActiveRecord::Migration
     remove_column :stories, :status
 
     add_index :stories, [:status_id]
+
+    statuses = %w(new accepted discussion implementation user_testing deployed rejected)
+    statuses.each { |status| StoryStatus.create :name => status }
   end
 
   def self.down
