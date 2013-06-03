@@ -11,7 +11,7 @@ class Project < ActiveRecord::Base
 
   has_many :stories, :dependent => :destroy, :inverse_of => :project
 
-  children :stories
+  children :stories, :memberships
 
   belongs_to :owner, :class_name => "User", :creator => true, :inverse_of => :projects
   has_many :memberships, :class_name => "ProjectMembership", :dependent => :destroy, :inverse_of => :project
