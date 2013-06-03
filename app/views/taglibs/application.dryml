@@ -1,3 +1,8 @@
 <!-- this file is included by front_site.dryml, admin_site.dryml et al, so
 you can place common code in this file. -->
 
+<def tag="main-nav">
+  <navigation class="main-nav" merge-attrs>
+    <nav-item href="#{base_url}/">Home</nav-item>
+  </navigation>
+</def>
