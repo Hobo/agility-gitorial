@@ -5,13 +5,13 @@ class Story < ActiveRecord::Base
   fields do
     title  :string
     body   :text
-    status enum_string(:new, :accepted, :discussion, :implementation)
     tasks_count :integer, :default => 0, :null => false
     timestamps
   end
   attr_accessible :title, :body, :status, :status_id, :project, :project_id, :tasks
 
   belongs_to :project, :inverse_of => :stories, :counter_cache => true
+  belongs_to :status, :class_name => "StoryStatus", :inverse_of => :stories
 
   has_many :tasks, :dependent => :destroy, :inverse_of => :story
 

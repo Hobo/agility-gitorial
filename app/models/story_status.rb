@@ -8,6 +8,8 @@ class StoryStatus < ActiveRecord::Base
   end
   attr_accessible :name
 
+  has_many :stories, :inverse_of => :status
+
   # --- Permissions --- #
 
   def create_permitted?
