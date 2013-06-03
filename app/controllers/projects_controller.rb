@@ -9,6 +9,7 @@ class ProjectsController < ApplicationController
     @stories = @project.stories.
       search(params[:search], :title).
       order_by(parse_sort_param(:title, :status))
+    @stories = @stories.status_is(params[:status]) if params[:status] && !params[:status].blank?
     hobo_show
   end
 
