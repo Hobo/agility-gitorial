@@ -38,5 +38,5 @@ Agility::Application.configure do
   config.assets.debug = true
   
   # turn this off after you're done translating
-  config.hobo.show_translation_keys = true
+  # config.hobo.show_translation_keys = true
 end
