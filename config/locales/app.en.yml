@@ -4,6 +4,12 @@
 en:
   hello: "Hello world"
 
+  front_title: "Projects you created"
+
+  project:
+    collection:
+      empty_message: "You do not have any projects"
+
 #  attributes:
 #    created_at: Created at
 #    updated_at: Updated at
