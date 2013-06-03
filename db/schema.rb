@@ -11,14 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130109024936) do
+ActiveRecord::Schema.define(:version => 20130109025834) do
 
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.integer  "stories_count", :default => 0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "owner_id"
   end
+
+  add_index "projects", ["owner_id"], :name => "index_projects_on_owner_id"
 
   create_table "stories", :force => true do |t|
     t.string   "title"
