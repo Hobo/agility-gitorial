@@ -4,7 +4,7 @@ class Story < ActiveRecord::Base
 
   fields do
     title  :string
-    body   :text
+    body   :markdown # or :textile
     tasks_count :integer, :default => 0, :null => false
     timestamps
   end
