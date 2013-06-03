@@ -36,6 +36,7 @@ GEM
       multi_json (~> 1.0)
     acts_as_list (0.1.9)
     arel (3.0.2)
+    bluecloth (2.2.0)
     bootstrap-datepicker-rails (0.6.35)
       railties (>= 3.0)
     bootstrap-sass (2.2.2.0)
@@ -155,6 +156,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_list
+  bluecloth
   coffee-rails (~> 3.2.1)
   hobo (= 2.0.0.pre8)
   hobo_bootstrap (= 2.0.0.pre8)

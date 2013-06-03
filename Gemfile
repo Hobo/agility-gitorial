@@ -48,3 +48,4 @@ gem "hobo_bootstrap_ui", "2.0.0.pre8"
 gem "jquery-ui-themes", "~> 0.0.4"
 
 gem "acts_as_list"
+gem "bluecloth"
