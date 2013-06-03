@@ -6,9 +6,14 @@ class Story < ActiveRecord::Base
     title  :string
     body   :text
     status :string
+    tasks_count :integer, :default => 0, :null => false
     timestamps
   end
-  attr_accessible :title, :body, :status
+  attr_accessible :title, :body, :status, :status_id, :project, :project_id, :tasks
+
+  belongs_to :project, :inverse_of => :stories, :counter_cache => true
+
+  has_many :tasks, :dependent => :destroy, :inverse_of => :story
 
   # --- Permissions --- #
 

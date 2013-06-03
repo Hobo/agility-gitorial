@@ -4,9 +4,12 @@ class Project < ActiveRecord::Base
 
   fields do
     name :string
+    stories_count :integer, :default => 0, :null => false
     timestamps
   end
-  attr_accessible :name
+  attr_accessible :name, :stories
+
+  has_many :stories, :dependent => :destroy, :inverse_of => :project
 
   # --- Permissions --- #
 
