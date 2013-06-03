@@ -5,7 +5,7 @@ class Story < ActiveRecord::Base
   fields do
     title  :string
     body   :text
-    status :string
+    status enum_string(:new, :accepted, :discussion, :implementation)
     tasks_count :integer, :default => 0, :null => false
     timestamps
   end
