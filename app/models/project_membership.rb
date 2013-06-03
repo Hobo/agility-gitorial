@@ -7,6 +7,9 @@ class ProjectMembership < ActiveRecord::Base
   end
   attr_accessible 
 
+  belongs_to :project, :inverse_of => :memberships
+  belongs_to :user, :inverse_of => :project_memberships
+
   # --- Permissions --- #
 
   def create_permitted?
