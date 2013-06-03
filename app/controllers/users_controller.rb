@@ -21,6 +21,11 @@ class UsersController < ApplicationController
     hobo_do_signup do
       if this.errors.blank?
         flash[:notice] << "You must activate your account before you can log in.  Please check your email."
+        
+        # FIXME: remove these two lines after you get email working reliably
+        # and before your application leaves its sandbox...
+        secret_path = user_activate_path :id=>this.id, :key => this.lifecycle.key
+        flash[:notice] = "Thanks for signing up!  The 'secret' link that was just emailed was: <a id='activation-link' href='#{secret_path}'>#{secret_path}</a>.".html_safe
       end
     end
   end
