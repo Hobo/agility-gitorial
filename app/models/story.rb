@@ -15,6 +15,8 @@ class Story < ActiveRecord::Base
 
   has_many :tasks, :dependent => :destroy, :inverse_of => :story
 
+  children :tasks
+
   # --- Permissions --- #
 
   def create_permitted?

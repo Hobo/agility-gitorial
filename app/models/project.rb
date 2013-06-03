@@ -11,6 +11,8 @@ class Project < ActiveRecord::Base
 
   has_many :stories, :dependent => :destroy, :inverse_of => :project
 
+  children :stories
+
   # --- Permissions --- #
 
   def create_permitted?
